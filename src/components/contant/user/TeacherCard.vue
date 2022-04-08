@@ -4,8 +4,9 @@
         <div class="avatar"><img :src="data.userImg" alt=""></div>
         <div class="txt">
           <div class="username">{{data.username}}</div>
-          <div class="classes">热门课程：{{data.classes}}</div>
-          <div class="domain">{{data.domain}}</div>
+          <div class="username">性别: {{data.gender}}</div>
+          <div class="classes">擅长领域: {{data.domainText}}</div>
+<!--          <div class="domain">{{data.domain}}</div>-->
         </div>
     </el-card>
   </div>

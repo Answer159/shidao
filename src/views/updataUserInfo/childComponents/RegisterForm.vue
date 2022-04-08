@@ -15,7 +15,7 @@
           <el-input v-model="userInfo.username"></el-input>
         </el-form-item>
         <el-form-item class="item" label="头像" >
-          <av-upload :image-url="userInfo.userImg" ref="RegisterAvUpload"></av-upload>
+          <av-upload :prop-url="userInfo.userImg" ref="RegisterAvUpload"></av-upload>
         </el-form-item>
         <el-form-item class="item" label="性别">
           <el-select v-model="userInfo.sex" placeholder="请选择性别">

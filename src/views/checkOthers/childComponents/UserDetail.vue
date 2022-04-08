@@ -8,6 +8,7 @@
     <h3><span class="lable">兴趣领域：</span> {{userInfo.domainText}}</h3>
     <h3><span class="lable">个人介绍：</span><span class="content">{{userInfo.selfIntro}}</span></h3>
     <h1>联系信息</h1>
+    <h3><span class="lable">电话号码：</span> {{userInfo.phone}}</h3>
   </div>
 </template>
 

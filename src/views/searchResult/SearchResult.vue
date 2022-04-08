@@ -226,7 +226,7 @@ export default {
             price : classInfos[i].price,
             time : classInfos[i].suggestTime,
             teacherName : userInfos[i].username,
-            score : 3.9,
+            score : classInfos[i].score,
         }
       this.listData.classList.list.push(obj);
       }      
@@ -255,7 +255,7 @@ export default {
             price : classInfos[i].price,
             time : classInfos[i].suggestTime,
             teacherName : userInfos[i].username,
-            score : 3.9,
+            score : classInfos[i].score,
         }
         if(obj.img === "no picture") obj.img ="ClassDefault.jpeg";
       this.listData.classList.list.push(obj);

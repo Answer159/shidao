@@ -21,7 +21,7 @@ export default {
     }
   },
   props:{
-    category:1,
+    category:null,
   },
   methods:{
     loadData(){
@@ -30,7 +30,6 @@ export default {
       })
     },
     selectClass(){
-      console.log(this.category)
       this.$emit('change',this.category);
     }
   },

@@ -16,17 +16,25 @@ export default {
   name:"AvUpload",
   data() {
     return {
-      file:null
+      file:null,
+      imageUrl:null
     }
   },
   props:{
-    imageUrl:null
+    propUrl:null
+  },
+  watch: {
+    propUrl:{
+      handler(newVal) {
+        this.imageUrl = newVal;
+      },
+    }
   },
   methods: {
     picChange(event){
       this.file = event.target.files[0];
       console.log(this.file);
-     this.imageUrl =URL.createObjectURL(event.target.files[0]); 
+     this.imageUrl =URL.createObjectURL(event.target.files[0]);
     },
     picDelete(){
       this.file = null;
