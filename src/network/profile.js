@@ -6,6 +6,12 @@ export function myClass() {
         method: 'get',
     })
 }
+export function myStudy() {
+    return request({
+        url: '/shidao/classInfo/myStudy',
+        method: 'get',
+    })
+}
 export function myQuestion() {
     return request({
         url: '/shidao/fore/myQuestion',

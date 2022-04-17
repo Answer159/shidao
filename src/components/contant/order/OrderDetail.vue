@@ -51,6 +51,7 @@
       <div class="orderText">前置知识：{{classDetail.frontKnowledge}}</div>
       <div class="orderText">教师：{{seller.username}}</div>
       <div class="button" v-if="sellerConform"> <el-button type="primary" plain @click="conformClass">确认订单</el-button></div>
+      <div class="button" v-if="buyerConfirm"> <el-button type="primary" plain @click="finishClass">确认付款</el-button></div>
       <div class="button"> <el-button type="primary" plain @click="detail">详细信息</el-button></div>
     </div>
   </div>
@@ -74,6 +75,7 @@
         <div class="orderText">前置知识：{{question.frontKnowledge}}</div>
         <div class="orderText">教师：{{seller.username}}</div>
         <div class="button" v-if="sellerConform"> <el-button type="primary" plain @click="conformQuestion">确认订单</el-button></div>
+        <div class="button" v-if="buyerConfirm"> <el-button type="primary" plain @click="finishQuestion">确认收款</el-button></div>
         <div class="button"> <el-button type="primary" plain @click="detailQ">详细信息</el-button></div>
       </div>
   </div>
@@ -150,7 +152,16 @@
 </template>
 
 <script>
-import {confirmC, confirmClass, confirmQ, postEvaluation, showOrder, showOrderQ} from "../../../network/Order";
+import {
+  confirmC,
+  confirmClass,
+  confirmQ,
+  finishC,
+  finishQ,
+  postEvaluation,
+  showOrder,
+  showOrderQ
+} from "../../../network/Order";
 import BigClassCard from "../class/BigClassCard";
 import SearchResultNavBar from "../../../views/searchResult/childComponents/SearchResultNavBar";
 import HeaderBack from "../back/HeaderBack";
@@ -224,6 +235,11 @@ export default {
         return false;
       }
     },
+    buyerConfirm(){
+      if(parseInt(this.order.orderStatus) === 1 && this.position === 0){
+        return true;
+      }
+    },
     //评价不为空就显示
     showList(){
       if(this.evaluationVo === null){
@@ -247,6 +263,26 @@ export default {
     change(e){
       this.$forceUpdate();
     },
+    finishClass(){
+      finishC(this.order.id).then((res)=>{
+        this.$message({
+          type:"success",
+          message:`成功确认!`
+        })
+        this.loadData();
+        location.reload();
+      })
+    },
+    finishQuestion(){
+      finishQ(this.order.id).then((res)=>{
+        this.$message({
+          type:"success",
+          message:`成功确认!`
+        })
+        this.loadData()
+        location.reload();
+      })
+    },
     conformClass(){
       confirmC(this.order.id,this.order.price,this.order.suggestTime).then((res)=>{
         this.$message({
@@ -254,6 +290,7 @@ export default {
           message:`订单成功确认!`
         })
         this.loadData()
+        location.reload();
       })
     },
     conformQuestion(){
@@ -263,6 +300,7 @@ export default {
           message:`订单成功确认!`
         })
         this.loadData()
+        location.reload();
       })
     },
     sendComment(){
@@ -272,7 +310,9 @@ export default {
           message:`发布评价成功!`
         })
         this.textarea = "";
+
       })
+      location.reload();
     },
     checkOthers(){
       this.$router.push({path:'/mainMenu',query:{id:this.seller.id}})

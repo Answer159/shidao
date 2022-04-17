@@ -20,6 +20,25 @@ export function confirmC(orderId,price,suggestTime) {
         }
     })
 }
+export function finishC(orderId) {
+    return request({
+        url: '/shidao/fore/finish',
+        method: 'get',
+        params: {
+            orderId
+        }
+    })
+}
+export function finishQ(orderQId) {
+    return request({
+        url: '/shidao/fore/finish_q',
+        method: 'get',
+        params: {
+            orderQId
+        }
+    })
+}
+
 export function confirmQ(orderQId,price,suggestTime) {
     return request({
         url: '/shidao/fore/confirm_q',
