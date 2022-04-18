@@ -18,7 +18,7 @@
       <el-tabs type="border-card">
         <el-tab-pane>
           <span slot="label"><i class="el-icon-date"></i> 问题介绍</span>
-            <question-intro :data="question"></question-intro>
+            <question-intro :video-form="videoForm" :data="question"></question-intro>
         </el-tab-pane>
         <el-tab-pane>
           <span slot="label"><i class="el-icon-chat-dot-square"></i> 问题评价</span>
@@ -57,6 +57,9 @@ export default {
   },
   data(){
     return{
+      videoForm: {
+        showVideoPath: ''
+      },
       canChange:0,
       question:{},
       commentVos:[],
@@ -88,6 +91,7 @@ export default {
       this.userInfo=res.data.userInfo;
       this.imgPath=res.data.imgPath;
       this.siderData.userInfo=res.data.userInfo;
+      this.videoForm.showVideoPath = res.data.videoPath;
       console.log(res);
       this.$refs.tops.execute();
     })

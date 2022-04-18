@@ -18,7 +18,7 @@
       <el-tabs type="border-card">
         <el-tab-pane>
           <span slot="label"><i class="el-icon-date"></i> 课程介绍</span>
-            <class-intro :data="classInfo"></class-intro>
+            <class-intro :video-form="videoForm" :data="classInfo"></class-intro>
         </el-tab-pane>
         <el-tab-pane>
           <span slot="label"><i class="el-icon-chat-dot-square"></i> 课程讨论</span>
@@ -57,6 +57,9 @@ export default {
   },
   data(){
     return{
+      videoForm: {
+        showVideoPath: ''
+      },
       canChange:0,
       classInfo:{},
       evaluationVos:[],
@@ -69,8 +72,7 @@ export default {
        CommentsData:[],
        class_id:1,
        siderData:{
-         userInfo:{
-              }
+         userInfo:{}
        }
     }
   },
@@ -87,6 +89,8 @@ export default {
       this.userInfo=res.data.userInfo;
       this.imgPath=res.data.imgPath;
       this.siderData.userInfo=res.data.userInfo;
+      this.videoForm.showVideoPath = res.data.videoPath;
+      console.log(this.videoForm)
       console.log(res);
       this.$refs.tops.execute();
     })

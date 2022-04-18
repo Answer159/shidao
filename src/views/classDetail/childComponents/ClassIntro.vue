@@ -1,5 +1,11 @@
 <template>
 <div class="main">
+
+  <div class="item" v-if="showVideo">
+    <h2><i class="el-icon-thumb" />&nbsp视频介绍：</h2>
+      <upload-video :video-form="videoForm" :params="params" ref="uploadVideo" @videoId="getVideoId"></upload-video>
+  </div>
+
   <div class="item">
     <h2><i class="el-icon-thumb" />&nbsp课程简介：</h2>
     <p class="main-text">{{data.textIntro}}</p>
@@ -32,15 +38,45 @@
 </template>
 
 <script>
+import uploadVideo from "../../components/uploadVideo";
 export default {
   name: 'ClassIntro',
+  components:{
+    uploadVideo
+  },
+  data(){
+    return{
+      params:{
+        flag:0
+      },
+      videoId:0,
+    }
+  },
   props: {
+    videoForm: {
+      showVideoPath: ''
+    },
     data: {
       // intro:null,
       // classContant:null,
       // frontKnowledge:null,
       // tools:null,
       // add:null
+    }
+  },
+  methods:{
+    getVideoId(val){
+      this.videoId=val;
+    },
+  },
+  computed:{
+    showVideo(){
+      if(this.videoForm.showVideoPath === ""||this.videoForm.showVideoPath === undefined||this.videoForm.showVideoPath === null){
+        return false;
+      }
+      else{
+        return true;
+      }
     }
   }
 
