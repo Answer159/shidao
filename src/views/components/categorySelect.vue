@@ -7,6 +7,7 @@
   </el-select>
 </template>
 
+
 <script>
 import {getCategories} from "../../network/others";
 
