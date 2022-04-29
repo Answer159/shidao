@@ -201,8 +201,7 @@ export default {
  }
 
  .item {
-   width: 30%;
-   float: left;
+   width: 48%;
    margin-top: 30px;
  }
 </style>

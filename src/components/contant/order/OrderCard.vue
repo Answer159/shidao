@@ -3,8 +3,10 @@
     <div class="img"><img :src="classDetail.imgPath[0]" alt=""></div>
     <div class="contant">
       <div class="title title-text">{{classDetail.title}}</div>
-      <div class="price tag-text"><span>参考价格：{{order.price}}</span> <span class="time">参考时长：{{order.suggestTime}}(小时)</span></div>
-      <div class="name tag-text">创建时间：{{order.createDate}}</div>
+      <div class="price tag-text"><span>参考价格：{{order.price}}</span></div>
+    <div> <span class="price tag-text">
+        参考时长：{{order.suggestTime}}(小时)</span></div>
+      <div class="name tag-text" style="font-size: 15px">创建时间：{{order.createDate}}</div>
       <div class="name tag-text">发布者：{{seller.username}}</div>
       <div class="name tag-text">购买者：{{buyer.username}}</div>
     </div>
@@ -35,27 +37,21 @@ export default {
   box-sizing: border-box;
   display: flex;
   background-color:white;
-  width: 95%;
-  height: 220px;
+  width: 100%;
+  height: 280px;
   padding-left: 0px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.img {
-  flex:1;
-  overflow: hidden;
-}
+
 
 img{
-  height: 100%;
+  height: 80%;
+  width: 80%;
   overflow: hidden;
 }
 
 .contant {
-  margin-left: 50px;
-  padding: 20px 0;
-  padding-right: 30px;
-  flex:2;
 }
 
 .card:hover{
@@ -65,7 +61,7 @@ img{
 }
 
 .time {
-  padding-left: 30%;
+  padding-top: 10px;
 }
 
 .price{

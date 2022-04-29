@@ -65,10 +65,18 @@ export default {
   methods: {
     want(){
       want(this.data.id).then((res)=>{
-        this.$message({
-          type:"success",
-          message:`创建课程订单成功!`
-        })
+        if(res.data.msg==="fail"){
+          this.$message({
+            type:"error",
+            message:`订单已经存在!`
+          })
+        }
+        else{
+          this.$message({
+            type:"success",
+            message:`创建课程订单成功!`
+          })
+        }
       })
     },
     execute(){

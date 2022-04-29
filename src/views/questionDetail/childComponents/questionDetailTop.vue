@@ -67,10 +67,18 @@ export default {
   methods: {
     want(){
       wantQ(this.question.id).then((res)=>{
-        this.$message({
-          type:"success",
-          message:`创建提问订单成功!`
-        })
+        if(res.data.msg==="fail"){
+          this.$message({
+            type:"error",
+            message:`订单已经存在!`
+          })
+        }
+        else{
+          this.$message({
+            type:"success",
+            message:`创建提问订单成功!`
+          })
+        }
       })
     },
     execute(){

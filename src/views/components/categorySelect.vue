@@ -1,5 +1,5 @@
 <template>
-  <el-select v-model="category" @change="selectClass" placeholder="请选择课程领域">
+  <el-select v-model="cate" @change="selectClass" placeholder="请选择课程领域">
     <el-option v-for="item in cateList"
                :value="item.id"
                :key="item.id"
@@ -15,7 +15,7 @@ export default {
   name: "categorySelect",
   data(){
     return{
-
+      cate:this.category,
       cateList:[
         {}
       ],
@@ -24,6 +24,12 @@ export default {
   props:{
     category:null,
   },
+  watch:{
+    category(val, valOld){
+      console.log("??")
+      this.cate=val;
+    }
+  },
   methods:{
     loadData(){
       getCategories().then((res)=>{
@@ -31,7 +37,7 @@ export default {
       })
     },
     selectClass(){
-      this.$emit('change',this.category);
+      this.$emit('change',this.cate);
     }
   },
   created() {

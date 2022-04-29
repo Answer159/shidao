@@ -66,9 +66,8 @@ export default {
   data() {
     return {
       CateListData:["Java","web","视觉设计","绘图","机械设计"],
-      HomeSwiperData:["https://edu-image.nosdn.127.net/a13f3f4f15f343668eceab7ea9bb6c02.png?imageView&quality=100",
-      "https://edu-image.nosdn.127.net/aeeb2dd73fac4523b3c79ec99eeec1ec.png?imageView&quality=100",
-      "https://edu-image.nosdn.127.net/a13f3f4f15f343668eceab7ea9bb6c02.png?imageView&quality=100"],
+      HomeSwiperData:["/img/home/1.png",
+      "/img/home/2.png"],
       RecommandTeacherData:[{
         id:15,
        username:"用户名",

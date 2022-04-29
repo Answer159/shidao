@@ -8,7 +8,7 @@
     --color-background-one: rgb(237, 248, 238);
     --color-black: #1D1D1F;
     --color-background: rgb(245, 245, 245);
-    --font-size: 18px;
+    --font-size: 17px;
     --font-size-small: 14px;
     --font-size-big: 20px;
     --font-size-very-big: 30px;
@@ -81,6 +81,7 @@ a {
     font-size: var(--font-size);
     letter-spacing: 0.1em;
     line-height: 1.4;
+    margin-top: 5px;
     color: black;
 }
 
