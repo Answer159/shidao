@@ -3,7 +3,7 @@
     <nav-bar>
           <div slot="left" class="left" @click="backHome">
             <div>
-            <span class="one">师到学堂</span>
+            <span class="one">师到平台</span>
             <span class="two">你的职业学堂</span>
             </div>
           </div>

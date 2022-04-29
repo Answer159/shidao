@@ -20,16 +20,14 @@ export default {
   name:"PicsUpload",
   data() {
     return {
-
       files:[],
+      imageUrls:[],
     }
-  },
-  props:{
-    imageUrls:[],
   },
   methods: {
     picChange(event){
       console.log(event.target.files[0]);
+      console.log(this.files);
       this.files.push( event.target.files[0]);
       let urls = new Array();
       for (let i = 0;i<this.files.length;i++) {

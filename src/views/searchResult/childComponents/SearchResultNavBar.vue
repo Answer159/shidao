@@ -2,7 +2,7 @@
 <div>
   <nav-bar>
     <div slot="left">
-      <div class="logo" @click="backHome">师到课堂</div>
+      <div class="logo" @click="backHome">师到平台</div>
     </div>
     <div class="center" slot="center">
       <search-item  class="search-item" buttonColor = "rgb(71, 68, 67)" contantColor = "rgb(71, 68, 67)"></search-item>
